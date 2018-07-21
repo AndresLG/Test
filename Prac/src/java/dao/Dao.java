@@ -3,30 +3,25 @@ package dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import lombok.Data;
 
+@Data
 public class Dao {
-    private Connection cn;
 
-    public Connection getCn() {
-        //si está abierta la conexión
-        return cn;
-    }
+    public Connection cn;
 
-    public void setCn(Connection cn) {
-        this.cn = cn;
-    }
-    
-    public void Conectar() throws SQLException, ClassNotFoundException{
+    public void Conectar() throws Exception {
+
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            cn = DriverManager.getConnection("jdbc:sqlserver://192.168.8.169:1433;database=GAE", "sa", "vallegrande2018");
-            System.out.println("Conectado");
-        } catch (ClassNotFoundException e) {
-            System.out.println("No conectado");
+            cn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;database=DBVideoClub", "user", "vallegrande2017");
+
+        } catch (SQLException e) {
+            throw e;
         }
     }
-    
-    public void Desconectar() throws Exception{
+
+    public void Cerrar() throws Exception {
         try {
             if (cn != null) {
                 if (cn.isClosed() == false) {
@@ -37,6 +32,24 @@ public class Dao {
             throw e;
         }
     }
-    
-    //public static void main(String[] args) throws SQLException, ClassNotFoundException {}
 }
+
+// try {
+//Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+           //cn=DriverManager.getConnection("jdbc:sqlserver://35.229.54.77:1433;database=GuiaElect", "root", "root");
+
+/* En public void Conectar(), agrerar ClassNotFoundExcection */
+//try...
+//            System.out.println("Conectado");
+//catch... Cambiar SQLException por ClassNotFoundExcection
+//            cambiar throw e por System.out.println("No Conectado");
+
+/* Para probar la conexión */
+//    public static void main(String[] args) throws SQLException, ClassNotFoundException{
+//        try {
+//            Dao dao = new Dao();
+//            dao.Conectar();
+//        } catch (ClassNotFoundException | SQLException e) {
+//            throw e;
+//        }
+//    }
