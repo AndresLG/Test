@@ -1,5 +1,5 @@
 /* Poner en uso la Base de Datos VideoClub */
-USE DBVideoClub
+USE BDVideoClub
 GO
 
 /* DATA de la tabla Actor */
