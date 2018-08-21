@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Generos</title>
+    </h:head>
+    <h:body>
+        
+        <h:form>
+            <a href="../../index.xhtml" style="font-size: x-large"> Inicio </a>
+        </h:form>
+        
+        <h:form id="form">
+            <p:dataTable id="data" value="#{generoC.lstgenero}" var="genero" paginator="true" rows="10" selectionMode="single" selection="#{generoC.genero}" rowKey="#{genero.idGen}">
+                <p:column headerText="Codigo">
+                    <p:outputLabel value="#{genero.idGen}"/>
+                </p:column>
+                <p:column headerText="Nombre">
+                    <p:outputLabel value="#{genero.nomGen}"/>
+                </p:column>
+                <f:facet name="footer">
+                    <p:commandButton value="Agregar" actionListener="#{generoC.preparGenero()}" oncomplete="PF('NewGenero').show();" update="NewGenero"/>
+                    <p:commandButton value="Refresh" actionListener="#{generoC.list()}" update="form"/>
+                </f:facet>
+            </p:dataTable>
+            <p:contextMenu for="data">
+                <p:menuitem value="editar" icon="ui-icon-search" oncomplete="PF('UpdateGenero').show();" update="UpdateGenero"/>
+                <p:menuitem value="borrar" icon="ui-icon-clear" update="data" actionListener="#{generoC.delete()}"/>
+            </p:contextMenu>
+        </h:form>
+        <ui:include src="Add.xhtml"/>
+        <ui:include src="Update.xhtml"/>
+    </h:body>
+</html>
+

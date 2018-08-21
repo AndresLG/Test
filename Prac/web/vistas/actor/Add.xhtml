@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition>
+        <p:dialog id="NewActor"
+                   widgetVar="NewActor"
+                   appendTo="@(body)"
+                   header="Agregar Nuevo Actor"
+                   closeOnEscape="true"
+                   resizable="false"
+                   responsive=".0"
+                   modal="true"  showEffect="explode">
+            <h:form>
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Nombre"/>
+                        <p:inputText value="#{actorC.actor.nomAct}" placeholder="Nombre"/>
+                    <p:outputLabel value="Apellido"/>
+                        <p:inputText value="#{actorC.actor.apeAct}" placeholder="Apellido"/>
+                    <p:commandButton value="Insertar" actionListener="#{actorC.add()}" update=":form:data" oncomplete="handleSubmit(args,'NewActor');"/>
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
+    </ui:composition>
+</html>
+

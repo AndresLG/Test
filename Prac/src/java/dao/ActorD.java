@@ -13,10 +13,9 @@ public class ActorD extends Dao implements ActorI{
     public void agregar(ActorM actor) throws Exception {
         try {
             this.Conectar();
-            PreparedStatement st = this.getCn().prepareStatement("insert into Actor(idAct, nomAct, apeAct) values(?,?,?)");
-            st.setInt(1, actor.getIdAct());
-            st.setString(2, actor.getNomAct());
-            st.setString(3, actor.getApeAct());
+            PreparedStatement st = this.getCn().prepareStatement("insert into Actor(nomAct, apeAct) values(?,?)");
+            st.setString(1, actor.getNomAct());
+            st.setString(2, actor.getApeAct());
             st.executeUpdate();
         } catch (Exception e) {
             throw e;
@@ -47,8 +46,6 @@ public class ActorD extends Dao implements ActorI{
             this.Conectar();
             PreparedStatement st = this.getCn().prepareStatement("delete from Actor where idAct=?");
             st.setInt(1, actor.getIdAct());
-            st.setString(2, actor.getNomAct());
-            st.setString(3, actor.getApeAct());
             st.executeUpdate();
         } catch (Exception e) {
             throw e;

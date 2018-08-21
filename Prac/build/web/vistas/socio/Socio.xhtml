@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Socios</title>
+    </h:head>
+    <h:body>
+        
+        <h:form>
+            <a href="../../index.xhtml" style="font-size: x-large"> Inicio </a>
+        </h:form>
+        
+        <h:form id="form">
+            <p:dataTable id="data" value="#{socioC.lstsocio}" var="socio" paginator="true" rows="10" selectionMode="single" selection="#{socioC.socio}" rowKey="#{socio.idSoc}">
+                <p:column headerText="Codigo">
+                    <p:outputLabel value="#{socio.idSoc}"/>
+                </p:column>
+                <p:column headerText="Nombre">
+                    <p:outputLabel value="#{socio.nomSoc}"/>
+                </p:column>
+                <p:column headerText="Apellido">
+                    <p:outputLabel value="#{socio.apeSoc}"/>
+                </p:column>
+                <p:column headerText="Direccion">
+                    <p:outputLabel value="#{socio.direccion}"/>
+                </p:column>
+                <p:column headerText="Telefono">
+                    <p:outputLabel value="#{socio.telefono}"/>
+                </p:column>
+                <p:column headerText="Director Favorito">
+                    <p:outputLabel value="#{socio.director_idDirect}"/>
+                </p:column>
+                <p:column headerText="Actor Favorito">
+                    <p:outputLabel value="#{socio.actor_idAct}"/>
+                </p:column>
+                <p:column headerText="Genero Favorito">
+                    <p:outputLabel value="#{socio.genero_idGen}"/>
+                </p:column>
+                <f:facet name="footer">
+                    <p:commandButton value="Agregar" actionListener="#{socioC.preparSocio()}" oncomplete="PF('NewSocio').show();" update="NewSocio"/>
+                    <p:commandButton value="Refresh" actionListener="#{socioC.list()}" update="form"/>
+                </f:facet>
+            </p:dataTable>
+            <p:contextMenu for="data">
+                <p:menuitem value="editar" icon="ui-icon-search" oncomplete="PF('UpdateSocio').show();" update="UpdateSocio"/>
+                <p:menuitem value="borrar" icon="ui-icon-clear" update="data" actionListener="#{socioC.delete()}"/>
+            </p:contextMenu>
+        </h:form>
+        <ui:include src="Add.xhtml"/>
+        <ui:include src="Update.xhtml"/>
+    </h:body>
+</html>
+
