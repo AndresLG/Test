@@ -16,7 +16,9 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <p:outputLabel value="Nombre"/>
-                        <p:inputText value="#{generoC.genero.nomGen}" placeholder="Nombre"/>
+                    <p:inputText value="#{generoC.genero.nomGen}" placeholder="Nombre" maxlength="15">
+                        <p:keyFilter regEx="/[a-z_]/i"/>
+                    </p:inputText>
                     <p:commandButton value="Aceptar" actionListener="#{generoC.update()}" update=":form:data" oncomplete="handleSubmit(args,'UpdateGenero');"/>
                 </h:panelGrid>
             </h:form>

@@ -16,6 +16,7 @@
         </h:form>
         
         <h:form id="form">
+            <p:growl autoUpdate="true" life="1500"/>
             <p:dataTable id="data" value="#{actorC.lstactor}" var="actor" paginator="true" rows="10" selectionMode="single" selection="#{actorC.actor}" rowKey="#{actor.idAct}">
                 <p:column headerText="Codigo">
                     <p:outputLabel value="#{actor.idAct}"/>

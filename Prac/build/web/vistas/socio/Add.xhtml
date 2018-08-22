@@ -16,19 +16,31 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <p:outputLabel value="Nombre"/>
-                    <p:inputText value="#{socioC.socio.nomSoc}" placeholder="Nombre"/>
-                    <p:outputLabel value="Nombre"/>
-                    <p:inputText value="#{socioC.socio.nomSoc}" placeholder="Nombre"/>
-                    <p:outputLabel value="Nombre"/>
-                    <p:inputText value="#{socioC.socio.nomSoc}" placeholder="Nombre"/>
-                    <p:outputLabel value="Nombre"/>
-                    <p:inputText value="#{socioC.socio.nomSoc}" placeholder="Nombre"/>
-                    <p:outputLabel value="Nombre"/>
-                    <p:inputText value="#{socioC.socio.nomSoc}" placeholder="Nombre"/>
-                    <p:outputLabel value="Nombre"/>
-                    <p:inputText value="#{socioC.socio.nomSoc}" placeholder="Nombre"/>
-                    <p:outputLabel value="Nombre"/>
-                    <p:inputText value="#{socioC.socio.nomSoc}" placeholder="Nombre"/>
+                    <p:inputText value="#{socioC.socio.nomSoc}" placeholder="Nombre" maxlength="30">
+                        <p:keyFilter regEx="/[a-z_]/i"/>
+                    </p:inputText>
+                    <p:outputLabel value="Apellido"/>
+                    <p:inputText value="#{socioC.socio.apeSoc}" placeholder="Apellido" maxlength="30">
+                        <p:keyFilter regEx="/[a-z_]/i"/>
+                    </p:inputText>
+                    <p:outputLabel value="Direccion"/>
+                    <p:inputText value="#{socioC.socio.direccion}" placeholder="Direccion" maxlength="30">
+                        <p:keyFilter regEx="/[a-z_]/i"/>
+                    </p:inputText>
+                    <p:outputLabel value="Telefono"/>
+                    <p:inputMask value="#{socioC.socio.telefono}" placeholder="Telefono" mask="999-999-999"/>
+                     <p:outputLabel value="Director Fav."/>
+                    <p:inputText value="#{peliculaC.pelicula.director_idDirect}" placeholder="Director Fav." maxlength="2">
+                        <p:keyFilter regEx="/[\d]/"/>
+                    </p:inputText>
+                    <p:outputLabel value="Actor Fav."/>
+                    <p:inputText value="#{peliculaC.pelicula.actor_idAct}" placeholder="Actor Fav." maxlength="2">
+                        <p:keyFilter regEx="/[\d]/"/>
+                    </p:inputText>
+                    <p:outputLabel value="Genero Fav."/>
+                    <p:inputText value="#{peliculaC.pelicula.genero_idGen}" placeholder="Genero Fav." maxlength="2">
+                        <p:keyFilter regEx="/[\d]/"/>
+                    </p:inputText>
                     <p:commandButton value="Insertar" actionListener="#{socioC.add()}" update=":form:data" oncomplete="handleSubmit(args,'NewSocio');"/>
                 </h:panelGrid>
             </h:form>

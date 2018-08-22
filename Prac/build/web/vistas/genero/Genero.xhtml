@@ -15,6 +15,7 @@
         </h:form>
         
         <h:form id="form">
+            <p:growl autoUpdate="true" life="1500"/>
             <p:dataTable id="data" value="#{generoC.lstgenero}" var="genero" paginator="true" rows="10" selectionMode="single" selection="#{generoC.genero}" rowKey="#{genero.idGen}">
                 <p:column headerText="Codigo">
                     <p:outputLabel value="#{genero.idGen}"/>

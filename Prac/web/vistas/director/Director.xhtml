@@ -15,6 +15,7 @@
         </h:form>
         
         <h:form id="form">
+            <p:growl autoUpdate="true" life="1500"/>
             <p:dataTable id="data" value="#{directorC.lstdirector}" var="director" paginator="true" rows="10" selectionMode="single" selection="#{directorC.director}" rowKey="#{director.idDirect}">
                 <p:column headerText="Codigo">
                     <p:outputLabel value="#{director.idDirect}"/>

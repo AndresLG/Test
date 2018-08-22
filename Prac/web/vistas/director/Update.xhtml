@@ -16,9 +16,13 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <p:outputLabel value="Nombre"/>
-                        <p:inputText value="#{directorC.director.nomDirect}" placeholder="Nombre"/>
+                    <p:inputText value="#{directorC.director.nomDirect}" placeholder="Nombre" maxlength="30">
+                        <p:keyFilter regEx="/[a-z_]/i"/>
+                    </p:inputText>
                     <p:outputLabel value="Apellido"/>
-                        <p:inputText value="#{directorC.director.apeDirect}" placeholder="Apellido"/>
+                    <p:inputText value="#{directorC.director.apeDirect}" placeholder="Apellido" maxlength="30">
+                        <p:keyFilter regEx="/[a-z_]/i"/>
+                    </p:inputText>
                     <p:commandButton value="Aceptar" actionListener="#{directorC.update()}" update=":form:data" oncomplete="handleSubmit(args,'UpdateDirector');"/>
                 </h:panelGrid>
             </h:form>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition>
+        <p:dialog id="UpdatePelicula"
+                   widgetVar="UpdatePelicula"
+                   appendTo="@(body)"
+                   header="Modificar Pelicula"
+                   closeOnEscape="true"
+                   resizable="false"
+                   responsive=".0"
+                   modal="true"  showEffect="explode">
+            <h:form>
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Titulo"/>
+                    <p:inputText value="#{peliculaC.pelicula.titulo}" placeholder="Titulo" maxlength="30"/>
+                    <p:outputLabel value="Estado"/>
+                    <p:inputText value="#{peliculaC.pelicula.estado}" placeholder="Estado" maxlength="1">
+                        <p:keyFilter regEx="/[a-z_]/i"/>
+                    </p:inputText>
+                    <p:outputLabel value="Genero Fav."/>
+                    <p:inputText value="#{peliculaC.pelicula.genero_idGen}" placeholder="Genero Fav." maxlength="2">
+                        <p:keyFilter regEx="/[\d]/"/>
+                    </p:inputText>
+                    <p:outputLabel value="Director Fav."/>
+                    <p:inputText value="#{peliculaC.pelicula.director_idDirect}" placeholder="Director Fav." maxlength="2">
+                        <p:keyFilter regEx="/[\d]/"/>
+                    </p:inputText>
+                    <p:outputLabel value="Actor Fav."/>
+                    <p:inputText value="#{peliculaC.pelicula.actor_idAct}" placeholder="Actor Fav." maxlength="2">
+                        <p:keyFilter regEx="/[\d]/"/>
+                    </p:inputText>
+                    <p:commandButton value="Aceptar" actionListener="#{peliculaC.update()}" update=":form:data" oncomplete="handleSubmit(args,'UpdatePelicula');"/>
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
+    </ui:composition>
+</html>
+
