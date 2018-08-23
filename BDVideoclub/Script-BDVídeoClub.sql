@@ -52,6 +52,11 @@ CREATE TABLE Prestamo (
     iddPrest int  NOT NULL IDENTITY(1, 1),
     fechaPrest date  NULL,
     Socio_idSoc int  NOT NULL,
+    telefono2 varchar(30) NULL,
+    Identificacion varchar(30) NULL,
+    SSN varchar(30) NULL,
+    ProductKey varchar(30) NULL,
+    Telefono varchar(30) NULL,
     CONSTRAINT Prestamo_pk PRIMARY KEY  (iddPrest)
 );
 

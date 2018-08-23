@@ -23,3 +23,12 @@ INSERT INTO Genero         (nomGen)     VALUES         ('Ciencia Ficcion');
 INSERT INTO Genero         (nomGen)     VALUES         ('Fantastico')
 GO
 
+/* DATA de la tabla Película */
+INSERT INTO Pelicula         (titulo,estado,Genero_idGen,Director_idDirect,Actor_idAct)     VALUES         ('Avengers:Infinity War','A','1','1','1');
+INSERT INTO Pelicula         (titulo,estado,Genero_idGen,Director_idDirect,Actor_idAct)     VALUES         ('The Amazing SpiderMan','A','2','2','2');
+INSERT INTO Pelicula         (titulo,estado,Genero_idGen,Director_idDirect,Actor_idAct)     VALUES         ('Thor Ragnarok','A','3','3','3');
+INSERT INTO Pelicula         (titulo,estado,Genero_idGen,Director_idDirect,Actor_idAct)     VALUES         ('Sherlock','A','4','4','4')
+GO
+
+/* DATA de la Socio */
+
