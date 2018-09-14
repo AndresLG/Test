@@ -14,7 +14,7 @@ public class Dao {
 
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            cn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;database=BDVideoClub", "sa", "vallegrande2018");
+            cn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;database=BDVideoClub", "sa", "root");
 
         } catch (SQLException e) {
             throw e;
