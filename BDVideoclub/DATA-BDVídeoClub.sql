@@ -31,4 +31,8 @@ INSERT INTO Pelicula         (titulo,estado,Genero_idGen,Director_idDirect,Actor
 GO
 
 /* DATA de la Socio */
-
+INSERT INTO Socio         (nomSoc,apeSoc,direccion,telefono,Director_idDirect,Actor_idAct,Genero_idGen)     VALUES         ('Jose','Perez','28 de Julio','986541235','1','1','1');
+INSERT INTO Socio         (nomSoc,apeSoc,direccion,telefono,Director_idDirect,Actor_idAct,Genero_idGen)     VALUES         ('Alexander','Rodriguez','Las Banderas','987451236','2','2','2');
+INSERT INTO Socio         (nomSoc,apeSoc,direccion,telefono,Director_idDirect,Actor_idAct,Genero_idGen)     VALUES         ('Miguel','Niguez','El Salvador','962014563','3','3','3');
+INSERT INTO Socio         (nomSoc,apeSoc,direccion,telefono,Director_idDirect,Actor_idAct,Genero_idGen)     VALUES         ('Daniel','Santos','Las Margaritas','902136547','4','4','4')
+GO

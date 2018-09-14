@@ -50,7 +50,7 @@ CREATE TABLE Pelicula (
 -- Table: Prestamo
 CREATE TABLE Prestamo (
     iddPrest int  NOT NULL IDENTITY(1, 1),
-    fechaPrest date  NULL,
+    fechaPrest varchar(20)  NULL,
     Socio_idSoc int  NOT NULL,
     telefono2 varchar(30) NULL,
     Identificacion varchar(30) NULL,
