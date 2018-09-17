@@ -10,11 +10,60 @@
         <script src="../resources/jsfCrud.js" type="text/javascript"></script>
     </h:head>
     <h:body>
-        
+
         <h:form>
             <a href="../../index.xhtml" style="font-size: x-large"> Inicio </a>
+            <p:ribbon>
+            <p:tab title="File">
+                <p:ribbonGroup label="Options">
+                    <p:commandButton value="New" icon="ui-ribbonicon-new" styleClass="ui-ribbon-bigbutton" type="button"/>
+                    <p:commandButton value="Save" icon="ui-ribbonicon-save" styleClass="ui-ribbon-bigbutton" type="button"/>
+                </p:ribbonGroup>
+
+                <p:ribbonGroup label="Clipboard" style="width:120px">
+                    <p:commandButton value="Paste" icon="ui-ribbonicon-paste" styleClass="ui-ribbon-bigbutton" type="button"/>
+                    <p:commandButton value="Cut" icon="ui-ribbonicon-cut" style="width:64px" type="button"/>
+                    <p:commandButton value="Print" icon="ui-ribbonicon-print" style="width:64px" type="button"/>
+                </p:ribbonGroup>
+
+                <p:ribbonGroup label="Fonts" style="width:220px">
+                    <p:selectOneMenu appendTo="@this">
+                        <f:selectItem itemLabel="Arial" itemValue="0" />
+                        <f:selectItem itemLabel="Comis Sans" itemValue="1" />
+                        <f:selectItem itemLabel="Helvetica" itemValue="2" />
+                        <f:selectItem itemLabel="Times New Roman" itemValue="3" />
+                        <f:selectItem itemLabel="Verdana" itemValue="4" />
+                    </p:selectOneMenu>
+
+                    <p:selectOneMenu appendTo="@this">
+                        <f:selectItem itemLabel="10" itemValue="10" />
+                        <f:selectItem itemLabel="12" itemValue="12" />
+                        <f:selectItem itemLabel="14" itemValue="14" />
+                        <f:selectItem itemLabel="18" itemValue="18" />
+                        <f:selectItem itemLabel="24" itemValue="24" />
+                        <f:selectItem itemLabel="36" itemValue="36" />
+                        <f:selectItem itemLabel="72" itemValue="72" />
+                    </p:selectOneMenu>
+
+                    <p:selectManyButton>
+                        <f:selectItem itemLabel="b" itemValue="b" />
+                        <f:selectItem itemLabel="u" itemValue="u" />
+                        <f:selectItem itemLabel="i" itemValue="i" />
+                    </p:selectManyButton>
+
+                    <p:colorPicker />  
+                </p:ribbonGroup>
+            </p:tab>
+
+            <p:tab title="View">
+                <p:ribbonGroup label="Zoom">
+                    <p:commandButton value="In" icon="ui-ribbonicon-zoomin" styleClass="ui-ribbon-bigbutton" type="button" />
+                    <p:commandButton value="Out" icon="ui-ribbonicon-zoomout" styleClass="ui-ribbon-bigbutton" type="button"/>   
+                </p:ribbonGroup>
+            </p:tab>
+        </p:ribbon>
         </h:form>
-        
+
         <h:form id="form">
             <p:growl autoUpdate="true" life="1500"/>
             <p:dataTable id="data" value="#{prestamoC.lstprestamo}" var="prestamo" paginator="true" rows="10" selectionMode="single" selection="#{prestamoC.prestamo}" rowKey="#{prestamo.idPrest}">

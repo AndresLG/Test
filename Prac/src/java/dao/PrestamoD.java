@@ -13,7 +13,7 @@ public class PrestamoD extends Dao implements PrestamoI{
     public void agregar(PrestamoM prestamo) throws Exception {
         try {
             this.Conectar();
-            PreparedStatement st = this.getCn().prepareStatement("insert into Prestamo(fechaPrest,Socio_idSoc,telefono2,Identificacion,SSN,ProductKey,Telefono) values(to_date(?,'DD/MM/YYYY'),?,?,?,?,?,?)");
+            PreparedStatement st = this.getCn().prepareStatement("insert into Prestamo(fechaPrest,Socio_idSoc,telefono2,Identificacion,SSN,ProductKey,Telefono) values(?,?,?,?,?,?,?)");
             st.setString(1, prestamo.getFechaPrest());
             st.setString(2, prestamo.getSocio_idSoc());
             st.setString(3, prestamo.getTelefono2());
@@ -33,7 +33,7 @@ public class PrestamoD extends Dao implements PrestamoI{
     public void modificar(PrestamoM prestamo) throws Exception {
         try {
             this.Conectar();
-            PreparedStatement st = this.getCn().prepareStatement("update Prestamo set fechaPrest=to_date(?,'DD/MM/YYYY'),Socio_idSoc=?,telefono2=?,Identificacion=?,SSN=?,ProductKey=?,Telefono=? where idPrest=?");
+            PreparedStatement st = this.getCn().prepareStatement("update Prestamo set fechaPrest=?,Socio_idSoc=?,telefono2=?,Identificacion=?,SSN=?,ProductKey=?,Telefono=? where iddPrest=?");
             st.setString(1, prestamo.getFechaPrest());
             st.setString(2, prestamo.getSocio_idSoc());
             st.setString(3, prestamo.getTelefono2());
@@ -54,7 +54,7 @@ public class PrestamoD extends Dao implements PrestamoI{
     public void eliminar(PrestamoM prestamo) throws Exception {
         try {
             this.Conectar();
-            PreparedStatement st = this.getCn().prepareStatement("delete from Prestamo where idPrest=?");
+            PreparedStatement st = this.getCn().prepareStatement("delete from Prestamo where iddPrest=?");
             st.setInt(1, prestamo.getIdPrest());
             st.executeUpdate();
         } catch (Exception e) {
@@ -70,16 +70,16 @@ public class PrestamoD extends Dao implements PrestamoI{
         ResultSet rs;
         try {
             this.Conectar();
-            String sql = "select Idrest, TO_CHAR(FechaPrest,'DD/MON/YYYY', 'NLS_DATE_LANGUAGE=SPANISH') as FechaPrest, Socio_idSoc, Telefono2, Identificacion, SSN, ProductKey, Telefono from Prestamo";
+            String sql = "select iddPrest, fechaPrest, Socio_idSoc, telefono2, Identificacion, SSN, ProductKey, Telefono from Prestamo";
             PreparedStatement st = this.getCn().prepareCall(sql);
             rs= st.executeQuery();
             lista = new ArrayList();
             while(rs.next()){
                 PrestamoM prestamo= new PrestamoM();
-                prestamo.setIdPrest(rs.getInt("Idrest"));
-                prestamo.setFechaPrest(rs.getString("FechaPrest"));
+                prestamo.setIdPrest(rs.getInt("iddPrest"));
+                prestamo.setFechaPrest(rs.getString("fechaPrest"));
                 prestamo.setSocio_idSoc(rs.getString("Socio_idSoc"));
-                prestamo.setTelefono2(rs.getString("Telefono2"));
+                prestamo.setTelefono2(rs.getString("telefono2"));
                 prestamo.setIdentificacion(rs.getString("Identificacion"));
                 prestamo.setSSN(rs.getString("SSN"));
                 prestamo.setProductKey(rs.getString("ProductKey"));
