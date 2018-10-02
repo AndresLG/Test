@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition>
+        <p:dialog id="UpdatePrestamo"
+                   widgetVar="UpdatePrestamo"
+                   appendTo="@(body)"
+                   header="Modificar Prestamo"
+                   closeOnEscape="true"
+                   resizable="false"
+                   responsive=".0"
+                   modal="true"  showEffect="explode">
+            <h:form>
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="FechaPrestamo"/>
+                    <p:inputMask value="#{prestamoC.prestamo.fechaPrest}" placeholder="FechaPrestamo" mask="99/99/9999"/>
+                    <p:outputLabel value="Socio"/>
+                    <p:inputText value="#{prestamoC.prestamo.socio_idSoc}" placeholder="Socio" maxlength="1">
+                        <p:keyFilter regEx="/[\d]/"/>
+                    </p:inputText>
+                    <p:outputLabel value="Telefono2"/>
+                    <p:inputMask value="#{prestamoC.prestamo.telefono2}" placeholder="Telefono2" mask="(999) 999-9999"/>
+                    <p:outputLabel value="Identificacion"/>
+                    <p:inputMask value="#{prestamoC.prestamo.identificacion}" placeholder="Identificacion" mask="99-9999999"/>
+                    <p:outputLabel value="SSN"/>
+                    <p:inputMask value="#{prestamoC.prestamo.SSN}" placeholder="SSN" mask="999-99-9999"/>
+                    <p:outputLabel value="ProductKey"/>
+                    <p:inputMask value="#{prestamoC.prestamo.productKey}" placeholder="ProductKey" mask="a*-999-a999"/>
+                    <p:outputLabel value="Telefono"/>
+                    <p:inputMask value="#{prestamoC.prestamo.telefono}" placeholder="Telefono" mask="(999) 999-9999? x99999"/>
+                    <p:commandButton value="Aceptar" actionListener="#{peliculaC.update()}" update=":form:data" oncomplete="handleSubmit(args,'UpdatePrestamo');"/>
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
+    </ui:composition>
+</html>
+
