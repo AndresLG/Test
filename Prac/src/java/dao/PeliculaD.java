@@ -66,7 +66,7 @@ public class PeliculaD extends Dao implements PeliculaI{
         ResultSet rs;
         try {
             this.Conectar();
-            String sql = "select * from Pelicula";
+            String sql = "select * from vw_Pelicula";
             PreparedStatement st = this.getCn().prepareCall(sql);
             rs= st.executeQuery();
             lista = new ArrayList();
@@ -75,9 +75,9 @@ public class PeliculaD extends Dao implements PeliculaI{
                 pelicula.setIdPel(rs.getInt("IdPel"));
                 pelicula.setTitulo(rs.getString("Titulo"));
                 pelicula.setEstado(rs.getString("Estado"));
-                pelicula.setGenero_idGen(rs.getString("Genero_idGen"));
-                pelicula.setDirector_idDirect(rs.getString("Director_idDirect"));
-                pelicula.setActor_idAct(rs.getString("Actor_idAct"));
+                pelicula.setGenero_idGen(rs.getString("Genero"));
+                pelicula.setDirector_idDirect(rs.getString("Director"));
+                pelicula.setActor_idAct(rs.getString("Actor"));
                 lista.add(pelicula);
             }
             return lista;

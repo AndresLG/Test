@@ -70,7 +70,7 @@ public class PrestamoD extends Dao implements PrestamoI{
         ResultSet rs;
         try {
             this.Conectar();
-            String sql = "select iddPrest, fechaPrest, Socio_idSoc, telefono2, Identificacion, SSN, ProductKey, Telefono from Prestamo";
+            String sql = "select * from vw_Prestamo";
             PreparedStatement st = this.getCn().prepareCall(sql);
             rs= st.executeQuery();
             lista = new ArrayList();
@@ -78,7 +78,7 @@ public class PrestamoD extends Dao implements PrestamoI{
                 PrestamoM prestamo= new PrestamoM();
                 prestamo.setIdPrest(rs.getInt("iddPrest"));
                 prestamo.setFechaPrest(rs.getString("fechaPrest"));
-                prestamo.setSocio_idSoc(rs.getString("Socio_idSoc"));
+                prestamo.setSocio_idSoc(rs.getString("Socio"));
                 prestamo.setTelefono2(rs.getString("telefono2"));
                 prestamo.setIdentificacion(rs.getString("Identificacion"));
                 prestamo.setSSN(rs.getString("SSN"));

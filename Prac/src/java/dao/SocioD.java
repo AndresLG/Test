@@ -70,7 +70,7 @@ public class SocioD extends Dao implements SocioI{
         ResultSet rs;
         try {
             this.Conectar();
-            String sql = "select * from Socio";
+            String sql = "select * from vw_Socio";
             PreparedStatement st = this.getCn().prepareCall(sql);
             rs= st.executeQuery();
             lista = new ArrayList();
@@ -81,9 +81,9 @@ public class SocioD extends Dao implements SocioI{
                 socio.setApeSoc(rs.getString("ApeSoc"));
                 socio.setDireccion(rs.getString("Direccion"));
                 socio.setTelefono(rs.getString("Telefono"));
-                socio.setDirector_idDirect(rs.getString("Director_idDirect"));
-                socio.setActor_idAct(rs.getString("Actor_idAct"));
-                socio.setGenero_idGen(rs.getString("Genero_idGen"));
+                socio.setDirector_idDirect(rs.getString("Director"));
+                socio.setActor_idAct(rs.getString("Actor"));
+                socio.setGenero_idGen(rs.getString("Genero"));
                 lista.add(socio);
             }
             return lista;
