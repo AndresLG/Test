@@ -58,16 +58,20 @@
         
         <h:form id="form1">
 
-            <p:growl id="msgs" showDetail="true" />
+            <p:growl id="msgs" showDetail="true" autoUpdate="true" life="1500"/>
 
             <h3 style="margin-top:0">Basico</h3>
-            <p:tabView>
+            <p:tabView value="#{socioC.lstsocio}">
                 <p:tab title="Hulk">
                     <h:panelGrid columns="2" cellpadding="10">
                         <img src="../../images/descarga.jpg" alt="" />
                         <h:outputText
                             value="Hulk es un personaje ficticio, un superhéroe que aparece en los cómics estadounidenses publicados por la editorial Marvel Comics.
                             El personaje fue creado por los escritores Stan Lee y Jack Kirby siendo su primera aparición en The Incredible Hulk #1 publicado en mayo de 1962." />
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.nomSoc}"/>
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.apeSoc}"/>
                     </h:panelGrid>
                 </p:tab>
                 <p:tab title="Thor">
@@ -75,6 +79,10 @@
                         <img src="../../images/descarga (1).jpg" alt="" />
                         <h:outputText value="El dios (Chris Hemsworth) Thor es expulsado de Asgard y es obligado a vivir entre los humanos en la Tierra
                                       después de que sus acciones imprudentes reiniciaron una guerra antigua." />
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.nomSoc}"/>
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.apeSoc}"/>
                     </h:panelGrid>
                 </p:tab>
                 <p:tab title="Captain America">
@@ -82,18 +90,26 @@
                         <img src="../../images/descarga (2).jpg" alt="" />
                         <h:outputText value="Capitán América, cuyo nombre real es Steven Grant Rogers, mejor conocido como Steve Rogers es un superhéroe 
                                       y justiciero ficticio que aparece en cómics estadounidenses publicados por Marvel Comics." />
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.nomSoc}"/>
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.apeSoc}"/>
                     </h:panelGrid>
                 </p:tab>
             </p:tabView>
 
-            <h3>Cargando a pedido</h3>
-            <p:tabView dynamic="true" cache="true" effect="fold">
+            <h3>On-Demand Loading</h3>
+            <p:tabView dynamic="true" cache="true" effect="fold" value="#{socioC.lstsocio}">
                 <p:tab title="Hulk">
                     <h:panelGrid columns="2" cellpadding="10">
                         <img src="../../images/descarga.jpg" alt="" />
                         <h:outputText
                             value="Hulk es un personaje ficticio, un superhéroe que aparece en los cómics estadounidenses publicados por la editorial Marvel Comics.
                             El personaje fue creado por los escritores Stan Lee y Jack Kirby siendo su primera aparición en The Incredible Hulk #1 publicado en mayo de 1962." />
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.nomSoc}"/>
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.apeSoc}"/>
                     </h:panelGrid>
                 </p:tab>
                 <p:tab title="Thor">
@@ -101,6 +117,10 @@
                         <img src="../../images/descarga (1).jpg" alt="" />
                         <h:outputText value="El dios (Chris Hemsworth) Thor es expulsado de Asgard y es obligado a vivir entre los humanos en la Tierra 
                                       después de que sus acciones imprudentes reiniciaron una guerra antigua." />
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.nomSoc}"/>
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.apeSoc}"/>
                     </h:panelGrid>
                 </p:tab>
                 <p:tab title="Captain America">
@@ -108,12 +128,16 @@
                         <img src="../../images/descarga (2).jpg" alt="" />
                         <h:outputText value="Capitán América, cuyo nombre real es Steven Grant Rogers, mejor conocido como Steve Rogers es un superhéroe 
                                       y justiciero ficticio que aparece en cómics estadounidenses publicados por Marvel Comics." />
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.nomSoc}"/>
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.apeSoc}"/>
                     </h:panelGrid>
                 </p:tab>
             </p:tabView>
 
             <h3>Eventos</h3>
-            <p:tabView>
+            <p:tabView value="#{socioC.lstsocio}">
                 <p:ajax event="tabChange" listener="#{socioC.list()}" update=":form1:msgs"/>
                 <p:ajax event="tabClose" listener="#{socioC.list()}" update=":form1:msgs"/>
 
@@ -123,6 +147,10 @@
                         <h:outputText
                             value="Hulk es un personaje ficticio, un superhéroe que aparece en los cómics estadounidenses publicados por la editorial Marvel Comics.
                             El personaje fue creado por los escritores Stan Lee y Jack Kirby siendo su primera aparición en The Incredible Hulk #1 publicado en mayo de 1962." />
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.nomSoc}"/>
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.apeSoc}"/>
                     </h:panelGrid>
                 </p:tab>
                 <p:tab title="Thor" closable="true">
@@ -130,6 +158,10 @@
                         <img src="../../images/descarga (1).jpg" alt="" />
                         <h:outputText value="El dios (Chris Hemsworth) Thor es expulsado de Asgard y es obligado a vivir entre los humanos en la Tierra 
                                       después de que sus acciones imprudentes reiniciaron una guerra antigua." />
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.nomSoc}"/>
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.apeSoc}"/>
                     </h:panelGrid>
                 </p:tab>
                 <p:tab title="Captain America" closable="true">
@@ -137,6 +169,10 @@
                         <img src="../../images/descarga (2).jpg" alt="" />
                         <h:outputText value="Capitán América, cuyo nombre real es Steven Grant Rogers, mejor conocido como Steve Rogers es un superhéroe 
                                       y justiciero ficticio que aparece en cómics estadounidenses publicados por Marvel Comics." />
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.nomSoc}"/>
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.apeSoc}"/>
                     </h:panelGrid>
                 </p:tab>
             </p:tabView>
@@ -158,11 +194,55 @@
             </p:tabView>
 
             <h3>Scrollable</h3>
-            <p:tabView scrollable="true">
-                <p:tab title="Tab 1">Tab 1 Content</p:tab>
-                <p:tab title="Tab 2">Tab 2 Content</p:tab>
-                <p:tab title="Tab 3">Tab 3 Content</p:tab>
-                <p:tab title="Tab 4">Tab 4 Content</p:tab>
+            <p:tabView scrollable="true" value="#{socioC.lstsocio}">
+                <p:tab title="Tab 1">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <f:facet name="header">
+                            <img src="../../images/descarga (2).jpg" alt="" />
+                        </f:facet>                    
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.direccion}" />
+
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.telefono}" />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Tab 2">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <f:facet name="header">
+                            <img src="../../images/descarga (2).jpg" alt="" />
+                        </f:facet>                    
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.direccion}" />
+
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.telefono}" />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Tab 3">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <f:facet name="header">
+                            <img src="../../images/descarga (2).jpg" alt="" />
+                        </f:facet>                    
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.direccion}" />
+
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.telefono}" />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Tab 4">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <f:facet name="header">
+                            <img src="../../images/descarga (2).jpg" alt="" />
+                        </f:facet>                    
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.direccion}" />
+
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.telefono}" />
+                    </h:panelGrid>
+                </p:tab>
                 <p:tab title="Tab 5">Tab 5 Content</p:tab>
                 <p:tab title="Tab 6">Tab 6 Content</p:tab>
                 <p:tab title="Tab 7">Tab 7 Content</p:tab>
@@ -182,13 +262,17 @@
             </p:tabView>
 
             <h3>Orientation - Top|Bottom|Left|Right</h3>
-            <p:tabView orientation="left">
+            <p:tabView orientation="left" value="#{socioC.lstsocio}">
                 <p:tab title="Hulk">                    
                     <h:panelGrid columns="2" cellpadding="10">
                         <img src="../../images/descarga.jpg" alt="" />
                         <h:outputText
                             value="Hulk es un personaje ficticio, un superhéroe que aparece en los cómics estadounidenses publicados por la editorial Marvel Comics.
                             El personaje fue creado por los escritores Stan Lee y Jack Kirby siendo su primera aparición en The Incredible Hulk #1 publicado en mayo de 1962." />
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.nomSoc}"/>
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.apeSoc}"/>
                     </h:panelGrid>
                 </p:tab>
                 <p:tab title="Thor">
@@ -196,6 +280,10 @@
                         <img src="../../images/descarga (1).jpg" alt="" />
                         <h:outputText value="El dios (Chris Hemsworth) Thor es expulsado de Asgard y es obligado a vivir entre los humanos en la Tierra 
                                       después de que sus acciones imprudentes reiniciaron una guerra antigua." />
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.nomSoc}"/>
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.apeSoc}"/>
                     </h:panelGrid>
                 </p:tab>
                 <p:tab title="Captain America">
@@ -203,12 +291,16 @@
                         <img src="../../images/descarga (2).jpg" alt="" />
                         <h:outputText value="Capitán América, cuyo nombre real es Steven Grant Rogers, mejor conocido como Steve Rogers es un superhéroe 
                                       y justiciero ficticio que aparece en cómics estadounidenses publicados por Marvel Comics." />
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.nomSoc}"/>
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.apeSoc}"/>
                     </h:panelGrid>
                 </p:tab>
             </p:tabView>
 
             <h3>Actions Facet</h3>
-            <p:tabView>
+            <p:tabView value="#{socioC.lstsocio}">
                 <p:tab title="Hulk">
                     <f:facet name="actions">
                         <p:menuButton value="Options">
@@ -230,6 +322,10 @@
                         <h:outputText
                             value="Hulk es un personaje ficticio, un superhéroe que aparece en los cómics estadounidenses publicados por la editorial Marvel Comics.
                             El personaje fue creado por los escritores Stan Lee y Jack Kirby siendo su primera aparición en The Incredible Hulk #1 publicado en mayo de 1962." />
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.nomSoc}"/>
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.apeSoc}"/>
                     </h:panelGrid>
                 </p:tab>
                 <p:tab title="Thor">
@@ -241,13 +337,24 @@
                         <img src="../../images/descarga (1).jpg" alt="" />
                         <h:outputText value="El dios (Chris Hemsworth) Thor es expulsado de Asgard y es obligado a vivir entre los humanos en la Tierra 
                                       después de que sus acciones imprudentes reiniciaron una guerra antigua." />
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.nomSoc}"/>
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.apeSoc}"/>
                     </h:panelGrid>
                 </p:tab>
                 <p:tab title="Captain America">
+                    <f:facet name="actions">
+                        <p:button value="Process" />
+                    </f:facet>
                     <h:panelGrid columns="2" cellpadding="10">
                         <img src="../../images/descarga (2).jpg" alt="" />
                         <h:outputText value="Capitán América, cuyo nombre real es Steven Grant Rogers, mejor conocido como Steve Rogers es un superhéroe 
                                       y justiciero ficticio que aparece en cómics estadounidenses publicados por Marvel Comics." />
+                        <h:outputText value="Nombre:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.nomSoc}"/>
+                        <h:outputText value="Apellido:" style="font-weight: bold"/>
+                        <h:outputText value="#{socio.apeSoc}"/>
                     </h:panelGrid>
                 </p:tab>
             </p:tabView>
