@@ -95,6 +95,125 @@
         </h:form>
         <ui:include src="Add.xhtml"/>
         <ui:include src="Update.xhtml"/>
+
+        <h:form id="form1">           
+            <p:growl id="msgs1" showDetail="true" />
+
+            <h3 style="margin-top:0">Basic</h3>
+            <p:accordionPanel>
+                <p:tab title="Avengers Infinity War Infinity War">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="../../images/Avengers Infinity War.jpg" alt="" style = "width:250px" />
+                        <h:outputText
+                            value="The story begins as Don Vito Corleone..." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="The Amazing The Amazing SpiderMan">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="../../images/The Amazing SpiderMan.jpg" alt="" style = "width:250px" />
+                        <h:outputText value="Francis Ford Coppola's legendary..." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Thor Ragnarok">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="../../images/Thor Ragnarok.jpg" alt="" style = "width:250px" />
+                        <h:outputText value="After a break of more than 15 years..." />
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+
+            <h3>Multiple Selection</h3>
+            <p:accordionPanel multiple="true">
+                <p:tab title="Avengers Infinity War Infinity War">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="../../images/Avengers Infinity War.jpg" alt="" style = "width:250px" />
+                        <h:outputText
+                            value="The story begins as Don Vito Corleone..." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="The Amazing The Amazing SpiderMan">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="../../images/The Amazing SpiderMan.jpg" alt="" style = "width:250px" />
+                        <h:outputText value="Francis Ford Coppola's legendary..." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Thor Ragnarok">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="../../images/Thor Ragnarok.jpg" alt="" style = "width:250px" />
+                        <h:outputText value="After a break of more than 15 years...." />
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+
+            <h3>On-Demand Loading</h3>
+            <p:accordionPanel dynamic="true" cache="true">
+                <p:tab title="Avengers Infinity War Infinity War">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="../../images/Avengers Infinity War.jpg" alt="" style = "width:250px" />
+                        <h:outputText
+                            value="The story begins as Don Vito Corleone..." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="The Amazing The Amazing SpiderMan">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="../../images/The Amazing SpiderMan.jpg" alt="" style = "width:250px" />
+                        <h:outputText value="Francis Ford Coppola's legendary..." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Thor Ragnarok">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="../../images/Thor Ragnarok.jpg" alt="" style = "width:250px" />
+                        <h:outputText value="After a break of more than 15 years..." />
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+
+            <h3>Change Event</h3>
+            <p:accordionPanel>
+                <p:ajax event="tabChange" listener="#{peliculaC.onTabChange}" update=":form1:msgs1" />
+                <p:ajax event="tabClose" listener="#{peliculaC.onTabClose}" update=":form1:msgs1" />
+
+                <p:tab title="Avengers Infinity War Infinity War">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="../../images/Avengers Infinity War.jpg" alt="" style = "width:250px" />
+                        <h:outputText
+                            value="The story begins as Don Vito Corleone..." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="The Amazing The Amazing SpiderMan">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="../../images/The Amazing SpiderMan.jpg" alt="" style = "width:250px" />
+                        <h:outputText value="Francis Ford Coppola's legendary..." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Thor Ragnarok">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <img src="../../images/Thor Ragnarok.jpg" alt="" style = "width:250px" />
+                        <h:outputText value="After a break of more than 15 years..." />
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+
+            <h3>DataModel</h3>
+            <p:accordionPanel value="#{peliculaC.lstpelicula}" var="pelicula">
+                <p:tab title="Pelicula - #{pelicula.idPel}">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <f:facet name="header">
+                            <img src="../../images/#{pelicula.titulo}.jpg" alt="" style = "width:250px" />
+                        </f:facet>                    
+                        <h:outputText value="Titulo:" style="font-weight: bold" />
+                        <h:outputText value="#{pelicula.titulo}" />
+
+                        <h:outputText value="Actor:" style="font-weight: bold" />
+                        <h:outputText value="#{pelicula.actor_idAct}" />
+
+                        <h:outputText value="Director:" style="font-weight: bold" />
+                        <h:outputText value="#{pelicula.director_idDirect}" />
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+        </h:form>
+
     </h:body>
 </html>
 
