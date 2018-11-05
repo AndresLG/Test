@@ -11,9 +11,13 @@
     </h:head>
     <h:body>
 
+        <!-- Toolbar -->
+        
         <h:form>
             <a href="../../index.xhtml" style="font-size: x-large"> Inicio </a>
             <p:growl id="messages" showDetail="true" />
+            <h1><center>Toolbar</center></h1>
+            <br/>
             <p:toolbar>
                 <f:facet name="left">
                     <p:commandButton type="button" value="New" icon="ui-icon-document" />
@@ -40,6 +44,13 @@
 
             </p:toolbar>
         </h:form>
+        
+        <br/>
+        <p:separator/>
+        
+        <!-- Dropdown -->
+        <h1><center>Dropdown</center></h1>
+        <br/>
 
         <h:form>
             <p:growl id="msgs" showDetail="true" />
@@ -61,6 +72,10 @@
                 </h:panelGrid>
             </p:panel>
         </h:form>
+        
+        <br/>
+        <p:separator/>
+        <br/>
 
         <h:form id="form">
             <p:growl autoUpdate="true" life="1500"/>
@@ -96,6 +111,13 @@
         <ui:include src="Add.xhtml"/>
         <ui:include src="Update.xhtml"/>
 
+        <br/>
+        <p:separator/>
+        
+        <!-- Accordion -->
+        <h1><center>Accordion</center></h1>
+        <br/>
+        
         <h:form id="form1">           
             <p:growl id="msgs1" showDetail="true" />
 
@@ -213,6 +235,37 @@
                     </h:panelGrid>
                 </p:tab>
             </p:accordionPanel>
+        </h:form>
+
+        <br/>
+        <p:separator/>
+        
+        <!-- Fieldset -->
+        <h1><center>Fieldset</center></h1>
+        <br/>
+        
+        <h:form>
+            <p:growl id="msgs2" showDetail="true" />
+
+            <p:fieldset legend="Basic" style="margin-bottom:20px">
+                <h:panelGrid columns="2" cellpadding="5">
+                    <img src="../../images/Thor Ragnarok.jpg" alt="" style = "width:250px" />
+                    <h:outputText
+                        value="Thor está preso en el otro extremo del universo. Necesita regresar a tiempo para evitar que 
+                        la todopoderosa Hela destruya su mundo, pero para escapar de su confinamiento y evitar el apocalipsis 
+                        tendrá que vencer antes al Increíble Hulk en un torneo de gladiadores." />
+                </h:panelGrid>
+            </p:fieldset>
+
+            <p:fieldset legend="Toggleable" toggleable="true" toggleSpeed="500">
+                <p:ajax event="toggle" listener="#{peliculaC.handleToggle}" update="msgs2" />
+                <h:panelGrid columns="2" cellpadding="5">
+                    <img src="../../images/Thor Ragnarok.jpg" alt="" style = "width:250px" />
+                    <h:outputText value="Thor está preso en el otro extremo del universo. Necesita regresar a tiempo para evitar que 
+                                  la todopoderosa Hela destruya su mundo, pero para escapar de su confinamiento y evitar el apocalipsis 
+                                  tendrá que vencer antes al Increíble Hulk en un torneo de gladiadores."></h:outputText>
+                </h:panelGrid>
+            </p:fieldset>
         </h:form>
 
     </h:body>

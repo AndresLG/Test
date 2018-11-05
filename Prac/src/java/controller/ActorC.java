@@ -10,6 +10,9 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import lombok.Data;
 import model.ActorM;
+import org.primefaces.component.layout.LayoutUnit;
+import org.primefaces.event.CloseEvent;
+import org.primefaces.event.ToggleEvent;
 
 @Data
 @Named(value = "actorC")
@@ -18,20 +21,20 @@ public class ActorC implements Serializable {
 
     ActorM actor = new ActorM();
     private List<ActorM> lstactor;
-    
+
     @PostConstruct
-    public void iniciar(){
+    public void iniciar() {
         try {
             list();
         } catch (Exception e) {
         }
     }
-    
-    public void preparActor(){
+
+    public void preparActor() {
         actor = new ActorM();
     }
-    
-    public void add() throws Exception{
+
+    public void add() throws Exception {
         ActorD dao;
         try {
             dao = new ActorD();
@@ -43,8 +46,8 @@ public class ActorC implements Serializable {
             throw e;
         }
     }
-    
-    public void update() throws Exception{
+
+    public void update() throws Exception {
         ActorD dao;
         try {
             dao = new ActorD();
@@ -56,8 +59,8 @@ public class ActorC implements Serializable {
             throw e;
         }
     }
-    
-    public void delete() throws Exception{
+
+    public void delete() throws Exception {
         ActorD dao;
         try {
             dao = new ActorD();
@@ -69,8 +72,8 @@ public class ActorC implements Serializable {
             throw e;
         }
     }
-    
-    public void list() throws Exception{
+
+    public void list() throws Exception {
         ActorD dao;
         try {
             dao = new ActorD();
@@ -78,5 +81,15 @@ public class ActorC implements Serializable {
         } catch (Exception e) {
             throw e;
         }
+    }
+
+    public void handleClose(CloseEvent event) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Unit Closed", "Position:'" + ((LayoutUnit) event.getComponent()).getPosition() + "'");
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
+
+    public void handleToggle(ToggleEvent event) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, ((LayoutUnit) event.getComponent()).getPosition() + " toggled", "Status:" + event.getVisibility().name());
+        FacesContext.getCurrentInstance().addMessage(null, message);
     }
 }

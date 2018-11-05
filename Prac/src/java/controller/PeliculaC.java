@@ -12,6 +12,7 @@ import lombok.Data;
 import model.PeliculaM;
 import org.primefaces.event.TabChangeEvent;
 import org.primefaces.event.TabCloseEvent;
+import org.primefaces.event.ToggleEvent;
 
 @Data
 @Named(value = "peliculaC")
@@ -92,4 +93,8 @@ public class PeliculaC implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
     
+    public void handleToggle(ToggleEvent event) {
+        FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Toggled", "Visibility:" + event.getVisibility());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
 }

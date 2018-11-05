@@ -10,33 +10,72 @@
         <script src="../resources/jsfCrud.js" type="text/javascript"></script>
     </h:head>
     <h:body>
+
+        <!-- Layout Full -->
         
-        <h:form>
-            <a href="../../index.xhtml" style="font-size: x-large"> Inicio </a>
-        </h:form>
-        
-        <h:form id="form">
-            <p:growl autoUpdate="true" life="1500"/>
-            <p:dataTable id="data" value="#{actorC.lstactor}" var="actor" paginator="true" rows="10" selectionMode="single" selection="#{actorC.actor}" rowKey="#{actor.idAct}">
-                <p:column headerText="Codigo">
-                    <p:outputLabel value="#{actor.idAct}"/>
-                </p:column>
-                <p:column headerText="Nombre">
-                    <p:outputLabel value="#{actor.nomAct}"/>
-                </p:column>
-                <p:column headerText="Apellido">
-                    <p:outputLabel value="#{actor.apeAct}"/>
-                </p:column>
-                <f:facet name="footer">
-                    <p:commandButton value="Agregar" actionListener="#{actorC.preparActor()}" oncomplete="PF('NewActor').show();" update="NewActor"/>
-                    <p:commandButton value="Refresh" actionListener="#{actorC.list()}" update="form"/>
-                </f:facet>
-            </p:dataTable>
-            <p:contextMenu for="data">
-                <p:menuitem value="editar" icon="ui-icon-search" oncomplete="PF('UpdateActor').show();" update="UpdateActor"/>
-                <p:menuitem value="borrar" icon="ui-icon-clear" update="data" actionListener="#{actorC.delete()}"/>
-            </p:contextMenu>
-        </h:form>
+        <p:growl id="msgs" showDetail="true"/>
+        <p:layout fullPage="true">
+            
+            <p:ajax event="toggle" listener="#{actorC.handleToggle}" update="msgs" />
+            <p:ajax event="close" listener="#{actorC.handleClose}" update="msgs" />
+            
+            <p:layoutUnit position="north" size="110" header="Top" resizable="true" closable="true" collapsible="true">
+                <h:outputText value="North unit content." />
+                <h:form>
+                    <a href="../../index.xhtml" style="font-size: x-large"> Inicio </a>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="150" header="Bottom" resizable="true" closable="true" collapsible="true">
+                <h:outputText value="South unit content." />
+                <h2><center>Tabla de Actores</center></h2>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true">
+                <h:outputText value="West unit content." />
+                <br />
+                <a href="../director/Director.xhtml" style="font-size: x-large">Director</a>
+                <br />
+                <a href="../genero/Genero.xhtml" style="font-size: x-large">Género</a>
+                <br />
+                <a href="../pelicula/Pelicula.xhtml" style="font-size: x-large">Película</a>
+                <br />
+                <a href="../prestamo/Prestamo.xhtml" style="font-size: x-large">Préstamo</a>
+                <br />
+                <a href="../socio/Socio.xhtml" style="font-size: x-large">Socio</a>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="east" size="200" header="Right" resizable="true" closable="true" collapsible="true" effect="drop">
+                <h:outputText value="Right unit content." />
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center">
+                <h:form id="form">
+                    <p:growl id="mensaje" autoUpdate="true" life="1500"/>
+                    <h1><center>Actores</center></h1>
+                    <p:dataTable id="data" value="#{actorC.lstactor}" var="actor" paginator="true" rows="10" selectionMode="single" selection="#{actorC.actor}" rowKey="#{actor.idAct}">
+                        <p:column headerText="Codigo">
+                            <p:outputLabel value="#{actor.idAct}"/>
+                        </p:column>
+                        <p:column headerText="Nombre">
+                            <p:outputLabel value="#{actor.nomAct}"/>
+                        </p:column>
+                        <p:column headerText="Apellido">
+                            <p:outputLabel value="#{actor.apeAct}"/>
+                        </p:column>
+                        <f:facet name="footer">
+                            <p:commandButton value="Agregar" actionListener="#{actorC.preparActor()}" oncomplete="PF('NewActor').show();" update="NewActor"/>
+                            <p:commandButton value="Refresh" actionListener="#{actorC.list()}" update="form"/>
+                        </f:facet>
+                    </p:dataTable>
+                    <p:contextMenu for="data">
+                        <p:menuitem value="editar" icon="ui-icon-search" oncomplete="PF('UpdateActor').show();" update="UpdateActor"/>
+                        <p:menuitem value="borrar" icon="ui-icon-clear" update="data" actionListener="#{actorC.delete()}"/>
+                    </p:contextMenu>
+                </h:form>
+            </p:layoutUnit>
+
+        </p:layout>
         <ui:include src="Add.xhtml"/>
         <ui:include src="Update.xhtml"/>
     </h:body>
